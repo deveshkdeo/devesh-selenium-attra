@@ -35,7 +35,6 @@ public class Xls_Reader {
 			e.printStackTrace();
 		}
 	}
-	
 
 	public int getRowCount(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
@@ -49,7 +48,6 @@ public class Xls_Reader {
 
 	}
 
-	
 	public String getCellData(String sheetName, String colName, int rowNum) {
 		try {
 			if (rowNum <= 0)
@@ -79,12 +77,12 @@ public class Xls_Reader {
 			if (cell == null)
 				return "";
 
-			//System.out.println(cell.getCellType().name());
+			// System.out.println(cell.getCellType().name());
 			//
 			if (cell.getCellType().name().equals("STRING"))
 				return cell.getStringCellValue();
 
-				else if ((cell.getCellType().name().equals("NUMERIC")) || (cell.getCellType().name().equals("FORMULA"))) {
+			else if ((cell.getCellType().name().equals("NUMERIC")) || (cell.getCellType().name().equals("FORMULA"))) {
 
 				String cellText = String.valueOf(cell.getNumericCellValue());
 				if (HSSFDateUtil.isCellDateFormatted(cell)) {
@@ -111,13 +109,12 @@ public class Xls_Reader {
 		}
 	}
 
-	
 	// returns the data from a cell
 	public ArrayList<Object[]> getCellData(String sheetName, int colNum, int rowNum) {
-		ArrayList<Object[]> array=new ArrayList<Object[]>();
-		ArrayList<Object[]> array1=new ArrayList<Object[]>();
-		Object[] obj= {};
-				try {
+		ArrayList<Object[]> array = new ArrayList<Object[]>();
+		ArrayList<Object[]> array1 = new ArrayList<Object[]>();
+		Object[] obj = {};
+		try {
 			if (rowNum <= 0) {
 				array1.add(obj);
 				return array1;
@@ -137,11 +134,11 @@ public class Xls_Reader {
 
 			//
 			if (cell.getCellType().name().equals("STRING")) {
-				Object obj1[]= {(Object)cell.getStringCellValue()};
+				Object obj1[] = { (Object) cell.getStringCellValue() };
 				array.add(obj1);
 				return array;
 			}
-			
+
 			else if ((cell.getCellType().name().equals("NUMERIC")) || (cell.getCellType().name().equals("FORMULA"))) {
 
 				String cellText = String.valueOf(cell.getNumericCellValue());
@@ -157,29 +154,28 @@ public class Xls_Reader {
 					// System.out.println(cellText);
 
 				}
-				Object obj1[]= {(Object)cellText};
+				Object obj1[] = { (Object) cellText };
 				array.add(obj1);
 
 				return array;
-			} else if (cell.getCellType().BLANK != null)
-				{
+			} else if (cell.getCellType().BLANK != null) {
 				array1.add(obj);
-			return array1;}
-			else {
-				
-				Object obj1[]= {(Object)String.valueOf(cell.getBooleanCellValue())};
-			array.add(obj1);
+				return array1;
+			} else {
 
-			return array;
+				Object obj1[] = { (Object) String.valueOf(cell.getBooleanCellValue()) };
+				array.add(obj1);
+
+				return array;
 			}
 		} catch (Exception e) {
 
 			e.printStackTrace();
-			Object obj1[]= {(Object)("row " + rowNum + " or column " + colNum + " does not exist  in xls")};
+			Object obj1[] = { (Object) ("row " + rowNum + " or column " + colNum + " does not exist  in xls") };
 			array.add(obj1);
 
 			return array;
-			//return "row " + rowNum + " or column " + colNum + " does not exist  in xls";
+			// return "row " + rowNum + " or column " + colNum + " does not exist in xls";
 		}
 	}
 
@@ -235,7 +231,7 @@ public class Xls_Reader {
 		}
 		return true;
 	}
-	
+
 	// returns true if sheet is created successfully else false
 	public boolean addSheet(String sheetname) {
 
@@ -379,7 +375,6 @@ public class Xls_Reader {
 
 	}
 
-	
 	public int getCellRowNum(String sheetName, String colName, String cellValue) {
 
 		for (int i = 2; i <= getRowCount(sheetName); i++) {
@@ -390,7 +385,7 @@ public class Xls_Reader {
 		return -1;
 
 	}
-	
+
 	public String getCellData1(String sheetName, String colName, int rowNum) {
 		try {
 			if (rowNum <= 0)
@@ -420,7 +415,7 @@ public class Xls_Reader {
 			if (cell == null)
 				return "";
 
-			//System.out.println(cell.getCellType().name());
+			// System.out.println(cell.getCellType().name());
 			//
 			if (cell.getCellType().name().equals("STRING"))
 				return cell.getStringCellValue();
@@ -520,8 +515,5 @@ public class Xls_Reader {
 			return "row " + rowNum + " or column " + colNum + " does not exist  in xls";
 		}
 	}
-
-
-	
 
 }

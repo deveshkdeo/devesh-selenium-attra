@@ -4,10 +4,26 @@
 <parameter name="userName" value="devesh24deo@gmail.com"/>
 <parameter name="password" value="Password1"/>
 <parameter name="url" value="https://www.akbartravels.com"/>
-  <test thread-count="5" name="Test">
+  <test thread-count="5" name="AkbarTestVerifyRegisterName">
   
     <classes>
       <class name="com.akbar.testCases.AkbarTestVerifyRegisterName"/>
     </classes>
   </test> <!-- Test -->
+
+  
+   <test thread-count="5" name="AkbarTestsFlight">
+  
+    <classes>
+      <class name="com.akbar.testCases.AkbarTestsFlight"/>
+    </classes>
+  </test>
+  
+  
+   <test thread-count="5" name="AkbarTestsHotel">
+  
+    <classes>
+      <class name="com.akbar.testCases.AkbarTestHotel"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->

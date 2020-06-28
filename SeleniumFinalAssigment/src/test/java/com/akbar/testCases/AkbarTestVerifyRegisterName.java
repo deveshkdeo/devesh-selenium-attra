@@ -2,6 +2,7 @@ package com.akbar.testCases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -21,20 +22,22 @@ public class AkbarTestVerifyRegisterName {
 	}
 
 	@Test
-	@Parameters({ "userName", "password" ,"url"})
-	public void VerifyRegisterName(String userName, String password,String url) {
+	@Parameters({ "userName", "password", "url" })
+	public void VerifyRegisterName(String userName, String password, String url) {
 
 		AkbarLoginPage login = PageFactory.initElements(driver, AkbarLoginPage.class);
 		driver.get(url);
 		login.login(userName, password);
-		String user_id=login.getUserName();
+		String user_id = login.getUserName();
 		System.out.println("Expected text on button:" + userName);
 		System.out.println("Actual text on button: " + user_id);
 		if (user_id.equals(userName)) {
 
 			System.out.println("Expected text on button matches ");
-		} else
+		} else {
 			System.out.println("mismatches Actual button text");
+		}
+		Assert.assertEquals(user_id, userName);
 	}
 
 	@AfterTest

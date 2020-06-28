@@ -3,13 +3,13 @@
 <suite parallel="none" name="Failed suite [Default suite]">
   <test parallel="none" name="Default test(failed)">
     <classes>
-      <class name="com.akbar.testCases.AkbarTestsFlight">
+      <class name="com.akbar.testCases.AkbarTestHotel">
         <methods>
-          <include name="flights"/>
           <include name="startBrowser"/>
           <include name="close"/>
+          <include name="hotel" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.akbar.testCases.AkbarTestsFlight -->
+      </class> <!-- com.akbar.testCases.AkbarTestHotel -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
