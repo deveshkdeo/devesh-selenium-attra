@@ -61,13 +61,13 @@ public class AkbarFlightPage {
 	@FindBy(how = How.XPATH, using = "//li[@class='btnarea']//span[@class='mat-button-wrapper'][text()='Search Flights']")
 	WebElement Search;
 
-	@FindBy(how = How.XPATH, using = "//div/section[1]/div[@class='second-section']//p[@class='ng-tns-c56-47'][text()='Departure']")
+	@FindBy(how = How.XPATH, using = "//flight-listing-int-rt-flightgrp//section[1]//p[text()='Departure']")
 	WebElement Departure;
 
-	@FindBy(how = How.XPATH, using = "//div/section[1]/div[@class='second-section']//p[@class='ng-tns-c56-47'][text()='Return']")
+	@FindBy(how = How.XPATH, using = "//flight-listing-int-rt-flightgrp//section[1]//p[text()='Return']")
 	WebElement Return;
 
-	@FindBy(how = How.XPATH, using = "//section[1]/header/div[2]/div[1]/h2")
+	@FindBy(how = How.XPATH, using = "//flight-listing-int-rt-flightgrp//section[1]//div[@class='price']")
 	WebElement Amount;
 
 	@FindBy(how = How.XPATH, using = "//ul[@class='left']")
@@ -106,7 +106,7 @@ public class AkbarFlightPage {
 		this.driver = driver;
 
 	}
-
+//method to book the flight taking fromPlace and toPlace as arguments
 	public void flightBooking(String fromPlace, String toPlace) {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
@@ -156,7 +156,7 @@ public class AkbarFlightPage {
 		act.moveToElement(Search).click().perform();
 
 	}
-
+    //method to get data for comparison from actual data
 	public LinkedHashMap<String, String> flightData() {
 
 		String departure = Departure.getText().trim();
@@ -169,12 +169,16 @@ public class AkbarFlightPage {
 		return filghtBookingData;
 	}
 
+	
+	//Get the actual webpage data for the flight booked
 	public String actualText() {
 
 		String actualText = ActualText.getText().trim();
 		return actualText;
 	}
-
+	
+	
+   //configure date xpath from excel data
 	public void dat(String dateFrom, String dateTo) {
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
@@ -209,7 +213,7 @@ public class AkbarFlightPage {
 		return setData;
 
 	}
-
+   //Method to set data in excel file for rechecking
 	public void setExcelData() {
 		Xls_Reader excelReader = new Xls_Reader("./TestData/TestData.xlsx");
 

@@ -27,7 +27,7 @@ public class AkbarHotelPage {
 	@FindBy(how = How.XPATH, using = "//input[@placeholder='Enter City/Hotel/Area/building']")
 	WebElement InputDestination;
 
-	@FindBy(how = How.XPATH, using = "//destination/div/div[2]/ul[1]/li[2]")
+	@FindBy(how = How.XPATH, using = "//destination//ul[1]/li[2]")
 	WebElement ClickDestination;
 
 	@FindBy(how = How.XPATH, using = "//li[1]//div[text()='+ ']")
@@ -78,14 +78,10 @@ public class AkbarHotelPage {
 	public AkbarHotelPage(WebDriver driver) {
 		this.driver = driver;
 	}
-
+//method to book hotel
 	public void hotelBooking(String HotelName) {
 		WebDriverWait wait = new WebDriverWait(driver, 20);
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		wait.until(ExpectedConditions.elementToBeClickable(EnterDestination));
 		EnterDestination.click();
 		InputDestination.sendKeys(HotelName);
 		try {
@@ -109,13 +105,13 @@ public class AkbarHotelPage {
 		placeFromHotel = Destination.getText();
 		SearchHotel.click();
 	}
-
+//Method to get actual data for comparision
 	public String actualText() {
 
 		String actualText = ActualText.getText().trim();
 		return actualText;
 	}
-
+//Method to form xpath of fromdate and todate
 	public void dat(String dateFrom, String dateTo) {
 		this.dateFrom = dateFrom;
 		this.dateTo = dateTo;
@@ -153,7 +149,7 @@ public class AkbarHotelPage {
 		return setData;
 
 	}
-
+//set actual data into excel
 	public void setExcelData() {
 		Xls_Reader excelReader = new Xls_Reader("./TestData/TestHotelData.xlsx");
 

@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite parallel="none" name="Failed suite [Suite]">
-  <test parallel="none" name="Test(failed)">
+  <parameter name="password" value="Password1"/>
+  <parameter name="userName" value="devesh24deo@gmail.com"/>
+  <parameter name="url" value="https://www.akbartravels.com"/>
+  <test parallel="none" name="AkbarTestsFlight(failed)">
     <classes>
+      <class name="com.akbar.testCases.AkbarTestHotel">
+        <methods>
+          <include name="startBrowser"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.akbar.testCases.AkbarTestHotel -->
+      <class name="com.akbar.testCases.AkbarTestsFlight">
+        <methods>
+          <include name="flights" invocation-numbers="0"/>
+          <include name="startBrowser"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- com.akbar.testCases.AkbarTestsFlight -->
       <class name="com.akbar.testCases.AkbarTestVerifyRegisterName">
         <methods>
-          <include name="VerifyRegisterName"/>
+          <include name="startBrowser"/>
+          <include name="close"/>
         </methods>
       </class> <!-- com.akbar.testCases.AkbarTestVerifyRegisterName -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- AkbarTestsFlight(failed) -->
 </suite> <!-- Failed suite [Suite] -->
