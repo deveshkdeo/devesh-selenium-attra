@@ -32,7 +32,7 @@ public class CalenderDate {
 
 			int monthNumber = cal.get(Calendar.MONTH);
 			cal.set(year, monthNumber, date1);
-			week = cal.get(Calendar.WEEK_OF_MONTH);
+			week = cal.get(Calendar.WEEK_OF_MONTH)-1;
 
 		} catch (ParseException e) {
 

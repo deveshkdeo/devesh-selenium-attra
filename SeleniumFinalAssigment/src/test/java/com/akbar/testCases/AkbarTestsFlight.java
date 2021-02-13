@@ -29,7 +29,7 @@ public class AkbarTestsFlight {
 		driver = browse.browserName("firefox");
 	}
 
-	@Test(dataProvider = "getData")
+	@Test(dataProvider = "dataFlight")
 	public void flights(String url, String userName, String password, String FromPlace, String ToPlace, String FromDate,
 			String ToDate) {
 

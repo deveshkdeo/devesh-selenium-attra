@@ -28,7 +28,7 @@ public class AkbarTestHotel {
 		driver = browse.browserName("firefox");
 	}
 
-	@Test(dataProvider = "getData")
+	@Test(dataProvider = "dataHotel")
 	public void hotel(String url, String PLace, String FromDate, String ToDate) {
 		driver.get(url);
 		AkbarHotelPage hotels = PageFactory.initElements(driver, AkbarHotelPage.class);

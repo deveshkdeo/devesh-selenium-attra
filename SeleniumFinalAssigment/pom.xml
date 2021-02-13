@@ -2,6 +2,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>SeleniumFinalAssigment</groupId>
   <artifactId>SeleniumFinalAssigment</artifactId>
+    <properties>
+    <maven.compiler.source>1.6</maven.compiler.source>
+    <maven.compiler.target>1.6</maven.compiler.target>
+  </properties>
   
 
   <dependencies>
@@ -17,20 +21,24 @@
     <artifactId>maven-artifact</artifactId>
     <version>3.6.3</version>
 </dependency>
+
     
-    
-    <dependency>
-  <groupId>org.testng</groupId>
-  <artifactId>testng</artifactId>
-  <version>6.8</version>
-  <scope>test</scope>
+ <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.3.0</version>
+    <scope>test</scope>
 </dependency>
 
+
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi</artifactId>
-    <version>4.1.1</version>
+    <version>4.1.2</version>
 </dependency>
+
 
     
   </dependencies>
